@@ -10,6 +10,8 @@ const Header = ({mode, setMode}) => {
 
     const [loading, setLoading] = useState(false);
 
+    const drawerWidth = 240;
+
     const changeTheme = (themeMode) => {
         setMode(!themeMode)
         localStorage.setItem('Mode', !themeMode);
