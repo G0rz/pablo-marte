@@ -7,10 +7,12 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from "./components/Layout/ProtectedRoute";
 import Container from "./components/Layout/Container";
-import Home from "./components/Home";
+import Home from "./pages/Home";
+import {useThemeDetector} from "./components/tools/tools";
 
 function App() {
-    const [mode, setMode] = useState(false)
+    const isDarkTheme = useThemeDetector();
+    const [mode, setMode] = useState(isDarkTheme)
 
     useEffect(() => {
         const themeMode = localStorage.getItem("Mode");
@@ -19,18 +21,21 @@ function App() {
         } else {
             setMode(JSON.parse(themeMode));
         }
+    }, [])
 
-    }, []);
-
+    const changeTheme = (themeMode) => {
+        setMode(!themeMode)
+        localStorage.setItem('Mode', !themeMode);
+    }
 
     return (<ThemeProvider theme={AppTheme(mode)}>
         <ToastContainer autoClose={5000} closeOnClick/>
         <BrowserRouter>
             <CssBaseline/>
-            <Container>
+            <Container mode={mode} changeTheme={changeTheme}>
                 <Routes>
                     <Route element={<ProtectedRoute/>}>
-                        <Route path={'/'} element={<Home setMode={setMode} mode={mode}/>}/>
+                        <Route path={'/'} element={<Home/>}/>
                         <Route path={'*'} element={<ErrorPage/>}/>
                     </Route>
                 </Routes>

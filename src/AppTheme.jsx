@@ -6,7 +6,7 @@ let colorBackBarra = "#3f9bf1";
 
 export function AppTheme(colorTema) {
 
-    const Tema = createTheme({
+    const Theme = createTheme({
         palette: {
             mode: (colorTema ? 'dark' : 'light'),
             primary: {
@@ -52,5 +52,5 @@ export function AppTheme(colorTema) {
         }
     })
 
-    return Tema
+    return Theme
 }
