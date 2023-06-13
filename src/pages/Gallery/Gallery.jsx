@@ -1,9 +1,13 @@
+import {Helmet} from "react-helmet";
 
 const Gallery = () => {
     return (
-        <div>
+        <>
+            <Helmet>
+                <title>Pablo Marte - Gallery</title>
+            </Helmet>
             Gallery
-        </div>
+        </>
     );
 };
 

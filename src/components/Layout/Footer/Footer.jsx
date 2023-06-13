@@ -1,7 +1,5 @@
 import {Grid, IconButton, Link, SvgIcon, Tooltip} from "@mui/material";
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import AppleIcon from '@mui/icons-material/Apple';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
