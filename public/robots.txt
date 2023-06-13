@@ -1,4 +1,3 @@
 # https://pablomarte.netlify.app/index.html
 User-agent: *
-Disallow: /
 Allow: /public/
