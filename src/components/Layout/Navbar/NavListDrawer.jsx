@@ -1,5 +1,5 @@
 import {
-    Box, Divider, List, ListItem, ListItemButton, ListItemText
+    Box, Divider, Link, List, ListItem, ListItemButton, ListItemText
 } from "@mui/material";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -18,8 +18,7 @@ const NavListDrawer = ({navlinks, mode, changeTheme, NavLink, setOpen}) => {
                 })}
             </List>
         </nav>
-        <Divider/>
-        <nav aria-label="tools">
+        <nav aria-label="tools" style={{position: 'absolute', bottom: 0}}>
             <List>
                 <ListItem disablePadding>
                     <ListItemButton sx={{textAlign: 'center'}}>
@@ -28,10 +27,11 @@ const NavListDrawer = ({navlinks, mode, changeTheme, NavLink, setOpen}) => {
                         </ListItemText>
                     </ListItemButton>
                 </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
-                        <ListItemText primary="Spam"/>
-                    </ListItemButton>
+                <Divider/>
+                <ListItem disablePadding >
+                    <ListItemText sx={{textAlign: 'center'}}>
+                        <small> Copyright © {new Date().getFullYear()} <Link component={'a'} href={'https://github.com/G0rz'} color={'inherit'} underline={'none'} target="_blank" rel="noopener noreferrer">G0rz</Link> All rights reserved.</small>
+                    </ListItemText>
                 </ListItem>
             </List>
         </nav>
