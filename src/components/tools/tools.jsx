@@ -1,15 +1,35 @@
 import {toast} from "react-toastify";
 import {useEffect, useState} from "react";
 
-export function successToast(mensaje) {
-    toast.success(mensaje, {
-        pauseOnFocusLoss: false, theme: "colored", toastId: `success-${1}`
+export function successToast(message) {
+    toast.success(message, {
+        pauseOnFocusLoss: false, theme: "colored"
     });
 }
 
-export function warningToast(mensaje) {
-    toast.warning(mensaje, {
-        pauseOnFocusLoss: false, theme: "colored", toastId: `incorrecto-sel${1}`
+export function warningToast(message) {
+    toast.warning(message, {
+        pauseOnFocusLoss: true, theme: "colored"
+    });
+}
+
+export function errorToast(message) {
+    toast.error(message, {
+        pauseOnFocusLoss: false, theme: "colored"
+    });
+}
+
+export function infoToast(message) {
+    toast.info(message, {
+        pauseOnFocusLoss: true, theme: "colored"
+    });
+}
+
+export function promiseToast(petition, pendingMessage, successMessage, errorMessage) {
+    toast.promise(petition, {
+        pending: pendingMessage ? pendingMessage : 'Cargando...',
+        success: successMessage ? pendingMessage : 'Listo',
+        error: errorMessage ? pendingMessage : 'Error'
     });
 }
 
@@ -17,7 +37,7 @@ export function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
 }
 
-export function useThemeDetector () {
+export function useThemeDetector() {
 
     //For make a test implement in some component:
     // const isDarkTheme = useThemeDetector();
