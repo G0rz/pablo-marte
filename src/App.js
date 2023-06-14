@@ -32,7 +32,7 @@ function App() {
         if (themeMode === undefined || themeMode === null) {
             return localStorage.setItem("Mode", mode);
         } else {
-            return setMode(JSON.parse(themeMode));
+            return setMode(JSON.parse('light'));
         }
     }
 
