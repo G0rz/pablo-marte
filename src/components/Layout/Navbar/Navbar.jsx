@@ -1,20 +1,10 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import {
-    AppBar,
-    Box,
-    Button,
-    Drawer,
-    IconButton,
-    Toolbar,
-    Typography,
-    ListItemButton,
-    ListItemText,
-    Menu,
-    ListItem
+    AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography, ListItemButton, ListItemText, Menu, ListItem
 } from "@mui/material";
 import {useState} from "react";
 import NavListDrawer from "./NavListDrawer";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {
     usePopupState, bindTrigger, bindMenu,
 } from 'material-ui-popup-state/hooks'
@@ -22,8 +12,8 @@ import {
 const Navbar = ({navlinks}) => {
 
     const [open, setOpen] = useState(false);
-
     const popupState = usePopupState({variant: 'popover', popupId: 'demoMenu'})
+    const navigate = useNavigate();
 
     return (<>
         <AppBar position="static" color={'transparent'} sx={{boxShadow: 'none'}}>
@@ -37,7 +27,8 @@ const Navbar = ({navlinks}) => {
                 >
                     <MenuIcon/>
                 </IconButton>
-                <Typography align={'center'} variant={'h6'} sx={{display: {xs: 'flex', sm: 'none'}}}>PABLO
+                <Typography align={'center'} variant={'h6'} sx={{display: {xs: 'flex', sm: 'none'}}}
+                            onClick={() => navigate('/')}>PABLO
                     MARTE</Typography>
                 <Box sx={{display: {xs: 'none', sm: 'flex'}}}>
                     {navlinks.map((item) => {
