@@ -3,7 +3,7 @@ import {createTheme} from "@mui/material/styles";
 export function AppTheme(theme) {
     return createTheme({
         palette: {
-            mode: (theme ? 'dark' : 'light'),
+            mode: (theme ? 'light' : 'light'),
             background: {
                 default: '#2380d1',
             },
