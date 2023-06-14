@@ -25,7 +25,7 @@ const navlinks = [{title: 'MÚSICA', path: '/music'}, {title: 'Acerca de Mí', p
 
 function App() {
 
-    const [mode, setMode] = useState(true)
+    const [mode, setMode] = useState(false)
     const themeMode = localStorage.getItem("Mode");
 
     const setThemeMode = () => {
