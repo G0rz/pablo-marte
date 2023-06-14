@@ -8,20 +8,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from "./components/Layout/ProtectedRoute";
 import Container from "./components/Layout/Container";
 import Home from "./pages/Home/Home";
-import {useThemeDetector} from "./components/tools/tools";
 import Contact from "./pages/Contact/Contact";
 import AboutMe from "./pages/AboutMe/AboutMe";
 import Gallery from "./pages/Gallery/Gallery";
-import Music from "./pages/Music/Music";
+import Nightingale from "./pages/Music/Nightingale";
+import LeñaAlFuego from "./pages/Music/LeñaAlFuego";
+import Luminiscencia from "./pages/Music/Luminiscencia";
+import Paisaje from "./pages/Music/Paisaje";
+import Petricor from "./pages/Music/Petricor";
+import TiempoDeQuerer from "./pages/Music/TiempoDeQuerer";
 
-const navlinks = [{title: 'Musica', path: '/music'}, {title: 'Acerca de Mí', path: '/about-me'}, {
+const navlinks = [{title: 'MÚSICA', path: '/music'}, {title: 'Acerca de Mí', path: '/about-me'}, {
     title: 'Pablo Marte',
     path: '/'
 }, {title: 'Contacto', path: '/contact'}, {title: 'Galería', path: '/gallery'}]
 
 function App() {
-    const isDarkTheme = useThemeDetector();
-    const [mode, setMode] = useState(isDarkTheme)
+
+    const [mode, setMode] = useState(true)
     const themeMode = localStorage.getItem("Mode");
 
     const setThemeMode = () => {
@@ -33,23 +37,24 @@ function App() {
     }
 
     useEffect(setThemeMode);
-    const changeTheme = (themeMode) => {
-        setMode(!themeMode)
-        localStorage.setItem('Mode', !themeMode);
-    }
 
     return (<ThemeProvider theme={AppTheme(mode)}>
         <ToastContainer autoClose={8000} closeOnClick/>
         <BrowserRouter>
             <CssBaseline/>
-            <Container mode={mode} changeTheme={changeTheme} navlinks={navlinks}>
+            <Container navlinks={navlinks}>
                 <Routes>
                     <Route element={<ProtectedRoute/>}>
                         <Route path={'/'} element={<Home/>}/>
                         <Route path={'/about-me'} element={<AboutMe/>}/>
                         <Route path={'/contact'} element={<Contact/>}/>
                         <Route path={'/gallery'} element={<Gallery/>}/>
-                        <Route path={'/music'} element={<Music/>}/>
+                        <Route path={'/leña-al-fuego'} element={<LeñaAlFuego/>}/>
+                        <Route path={'/luminiscencia'} element={<Luminiscencia/>}/>
+                        <Route path={'/nightingale'} element={<Nightingale/>}/>
+                        <Route path={'/paisaje'} element={<Paisaje/>}/>
+                        <Route path={'/petricor'} element={<Petricor/>}/>
+                        <Route path={'/tiempo-de-querer'} element={<TiempoDeQuerer/>}/>
                         <Route path={'*'} element={<ErrorPage/>}/>
                     </Route>
                 </Routes>

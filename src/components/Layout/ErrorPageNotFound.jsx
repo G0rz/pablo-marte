@@ -9,7 +9,7 @@ export const ErrorPage = () => {
             <p>Sorry, an unexpected error has occurred.</p>
         </Grid>
         <Grid item xs={12}>
-            <Button component={NavLink} to={'/'} color={'primary'} variant={'outlined'}>Regresar al Inicio</Button>
+            <Button component={NavLink} to={'/'} color={'primary'} variant={'contained'}>Regresar al Inicio</Button>
         </Grid>
     </Grid>);
 };

@@ -48,10 +48,10 @@ const Footer = () => {
     }
 
     return (<Grid container alignItems={'center'} justifyContent={'center'}>
-        <Grid item xs={12} spacing={2}>
+        <Grid item xs={12} sx={{my: 1}}>
             <Tooltip title="Instagram" arrow>
                 <IconButton aria-label="Instagram" component={'a'} href={'https://www.instagram.com/paul.t30/?hl=es-la'}
-                            target="_blank" rel="noopener noreferrer" color={'primary'}>
+                            target="_blank" rel="noopener noreferrer" color={'inherit'}>
                     <InstagramIcon/>
                 </IconButton>
             </Tooltip>
@@ -59,14 +59,14 @@ const Footer = () => {
                 <IconButton aria-label="Spotify" component={'a'}
                             href={'https://open.spotify.com/artist/56CzSMvDKHkeNOZqtlqq3o?si=S4tS8-D1Qy2xNDdq3olhtw'}
                             target="_blank"
-                            rel="noopener noreferrer" color={'primary'}>
+                            rel="noopener noreferrer" color={'inherit'}>
                     <SpotifyIcon/>
                 </IconButton>
             </Tooltip>
             <Tooltip title="Apple Music" arrow>
                 <IconButton aria-label="Apple Music" component={'a'}
                             href={'https://music.apple.com/mx/artist/pablo-marte/1494510551'}
-                            target="_blank" rel="noopener noreferrer" color={'primary'}>
+                            target="_blank" rel="noopener noreferrer" color={'inherit'}>
                     <AppleMusicIcon/>
                 </IconButton>
             </Tooltip>
@@ -74,25 +74,25 @@ const Footer = () => {
                 <IconButton aria-label="Amazon Music" component={'a'}
                             href={'https://music.amazon.com.mx/artists/B083WNNZ92/pablo-marte'}
                             target="_blank"
-                            rel="noopener noreferrer" color={'primary'}>
+                            rel="noopener noreferrer" color={'inherit'}>
                     <AmazonMusicIcon/>
                 </IconButton>
             </Tooltip>
             <Tooltip title="Deezer" arrow>
                 <IconButton aria-label="Deezer" component={'a'} href={'https://deezer.page.link/qQzfAG1SPqhzR4Q87'}
-                            target="_blank" rel="noopener noreferrer" color={'primary'}>
+                            target="_blank" rel="noopener noreferrer" color={'inherit'}>
                     <DeezerIcon/>
                 </IconButton>
             </Tooltip>
             <Tooltip title="Youtube" arrow>
                 <IconButton aria-label="Youtube" component={'a'} href={'https://youtube.com/@Pablo.marte37'}
                             target="_blank"
-                            rel="noopener noreferrer" color={'primary'}>
+                            rel="noopener noreferrer" color={'inherit'}>
                     <YouTubeIcon/>
                 </IconButton>
             </Tooltip>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{my: 4}}>
             <small> Copyright © {new Date().getFullYear()} <Link component={'a'} href={'https://github.com/G0rz'}
                                                                  color={'inherit'} underline={'none'} target="_blank"
                                                                  rel="noopener noreferrer">G0rz</Link> All rights

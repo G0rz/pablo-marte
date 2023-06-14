@@ -1,36 +1,86 @@
 import {
-    Box, Divider, Link, List, ListItem, ListItemButton, ListItemText
+    Box, Collapse, Divider, Link, List, ListItem, ListItemButton, ListItemText
 } from "@mui/material";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import {useState} from "react";
 
-const NavListDrawer = ({navlinks, mode, changeTheme, NavLink, setOpen}) => {
+
+const NavListDrawer = ({navlinks, NavLink, setOpen}) => {
+
+    const [expand, setExpand] = useState(false);
+
+    const handleClick = () => {
+        setExpand(!expand);
+    };
+
     return (<Box sx={{width: 250}}>
-        <nav aria-label="drawer">
+        <nav aria-label="drawer" >
             <List>
                 {navlinks.map((item) => {
-                    return (<ListItem key={item.title} disablePadding>
-                        <ListItemButton sx={{textAlign: 'center'}} onClick={() => setOpen(false)}
+                    return item.title === 'MÚSICA' ? <>
+                        <ListItemButton onClick={handleClick} sx={{textAlign: 'center'}}>
+                            <ListItemText>
+                                MÚSICA {expand ? ' - ' : ' + '}
+                            </ListItemText>
+                        </ListItemButton>
+                        <Collapse in={expand} timeout="auto" unmountOnExit>
+                            <ListItem disablePadding dense={true} >
+                                <ListItemButton onClick={() => setOpen(false)} sx={{textAlign: 'center'}}
+                                                component={NavLink} to={'/nightingale'}>
+                                    <ListItemText primary={'Nightingale 🐤'}/>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding dense={true} >
+                                <ListItemButton onClick={() => setOpen(false)} sx={{textAlign: 'center'}}
+                                                component={NavLink} to={'/petricor'}>
+                                    <ListItemText primary={'Petricor ❤️'}/>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding dense={true} >
+                                <ListItemButton onClick={() => setOpen(false)} sx={{textAlign: 'center'}}
+                                                component={NavLink} to={'/tiempo-de-querer'}>
+                                    <ListItemText primary={'Tiempo de querer 💙'}/>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding dense={true} >
+                                <ListItemButton onClick={() => setOpen(false)} sx={{textAlign: 'center'}}
+                                                component={NavLink} to={'/luminiscencia'}>
+                                    <ListItemText primary={'Luminiscencia 🌊'}/>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding dense={true} >
+                                <ListItemButton onClick={() => setOpen(false)} sx={{textAlign: 'center'}}
+                                                component={NavLink} to={'/paisaje'}>
+                                    <ListItemText primary={'Paisaje 🌆'}/>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding dense={true} >
+                                <ListItemButton onClick={() => setOpen(false)} sx={{textAlign: 'center'}}
+                                                component={NavLink} to={'/leña-al-fuego'}>
+                                    <ListItemText primary={'Leña al fuego 🔥'}/>
+                                </ListItemButton>
+                            </ListItem>
+                        </Collapse>
+                    </> : <ListItem key={item.title} disablePadding>
+                        <ListItemButton sx={{textAlign: 'center', background: '#2380d1 !important'}}
+                                        onClick={() => setOpen(false)}
                                         component={NavLink} to={item.path}>
                             <ListItemText primary={item.title}/>
                         </ListItemButton>
-                    </ListItem>)
+                    </ListItem>
                 })}
             </List>
         </nav>
-        <nav aria-label="tools" style={{position: 'absolute', bottom: 0}}>
+        <nav aria-label="tools" style={{position: 'absolute', bottom: 0, background: '#2380d1 !important'}}>
+            <Divider/>
             <List>
                 <ListItem disablePadding>
-                    <ListItemButton sx={{textAlign: 'center'}}>
-                        <ListItemText onClick={() => changeTheme(mode)}>
-                            {mode ? <LightModeOutlinedIcon color="primary"/> : <DarkModeOutlinedIcon color="primary"/>}
-                        </ListItemText>
-                    </ListItemButton>
-                </ListItem>
-                <Divider/>
-                <ListItem disablePadding >
                     <ListItemText sx={{textAlign: 'center'}}>
-                        <small> Copyright © {new Date().getFullYear()} <Link component={'a'} href={'https://github.com/G0rz'} color={'inherit'} underline={'none'} target="_blank" rel="noopener noreferrer">G0rz</Link> All rights reserved.</small>
+                        <small> Copyright © {new Date().getFullYear()} <Link component={'a'}
+                                                                             href={'https://github.com/G0rz'}
+                                                                             color={'inherit'} underline={'none'}
+                                                                             target="_blank"
+                                                                             rel="noopener noreferrer">G0rz</Link> All
+                            rights reserved.</small>
                     </ListItemText>
                 </ListItem>
             </List>

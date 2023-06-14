@@ -4,8 +4,11 @@ export function AppTheme(theme) {
     return createTheme({
         palette: {
             mode: (theme ? 'dark' : 'light'),
+            background: {
+                default: '#2380d1',
+            },
             primary: {
-                light: '#3f9bf1', main: '#0F82EE', dark: '#0a5ba6', contrastText: '#fff'
+                light: '#f29259', main: '#ef732a', dark: '#d55a10', contrastText: '#fff'
             }, secondary: {
                 light: '#3eb8e6', main: '#0EA7E0', dark: '#09749c', contrastText: '#fff'
             }, success: {
@@ -13,6 +16,22 @@ export function AppTheme(theme) {
             }, error: {
                 light: "#e57373", main: "#f44336", dark: "#d32f2f", contrastText: "#fff"
             }
+        },
+        components: {
+            MuiPaper: {
+                styleOverrides: {
+                    root: {
+                        background: '#2380d1',
+                    },
+                },
+            },
+            MuiListItemButton: {
+                styleOverrides: {
+                    root: {
+                        background: '#2380d1',
+                    },
+                },
+            },
         },
     })
 }
