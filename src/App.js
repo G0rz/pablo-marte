@@ -25,14 +25,14 @@ const navlinks = [{title: 'MÚSICA', path: '/music'}, {title: 'Acerca de Mí', p
 
 function App() {
 
-    const [mode, setMode] = useState(false)
+    const [mode, setMode] = useState(true)
     const themeMode = localStorage.getItem("Mode");
 
     const setThemeMode = () => {
         if (themeMode === undefined || themeMode === null) {
             return localStorage.setItem("Mode", mode);
         } else {
-            return setMode(JSON.parse('light'));
+            return setMode(JSON.parse(themeMode));
         }
     }
 
