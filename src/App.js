@@ -18,21 +18,21 @@ import Paisaje from "./pages/Music/Paisaje";
 import Petricor from "./pages/Music/Petricor";
 import TiempoDeQuerer from "./pages/Music/TiempoDeQuerer";
 
-const navlinks = [{title: 'MÚSICA', path: '/music'}, {title: 'Acerca de Mí', path: '/about-me'}, {
+const navlinks = [{title: 'Música', path: '/'}, {title: 'Acerca de Mí', path: '/about-me'}, {
     title: 'Pablo Marte',
     path: '/'
 }, {title: 'Contacto', path: '/contact'}, {title: 'Galería', path: '/gallery'}]
 
 function App() {
 
-    const [mode, setMode] = useState(false)
+    const [mode, setMode] = useState(true)
     const themeMode = localStorage.getItem("Mode");
 
     const setThemeMode = () => {
         if (themeMode === undefined || themeMode === null) {
             return localStorage.setItem("Mode", mode);
         } else {
-            return setMode(JSON.parse('light'));
+            return setMode(JSON.parse(themeMode));
         }
     }
 
