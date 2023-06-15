@@ -1,4 +1,4 @@
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 import {Grid} from "@mui/material";
 import {Image} from "mui-image";
 import Me from "../../assets/images/AboutMe.webp";

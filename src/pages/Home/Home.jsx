@@ -1,4 +1,4 @@
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 import {Box, Button, Grid, Typography} from "@mui/material";
 import {Image} from "mui-image";
 import Nuevo from "../../assets/images/Nightingale.webp";
