@@ -10,13 +10,14 @@ import Container from "./components/Layout/Container";
 import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import AboutMe from "./pages/AboutMe/AboutMe";
-import Gallery from "./pages/Gallery/Gallery";
+import MyGallery from "./pages/Gallery/MyGallery";
 import Nightingale from "./pages/Music/Nightingale";
 import LeñaAlFuego from "./pages/Music/LeñaAlFuego";
 import Luminiscencia from "./pages/Music/Luminiscencia";
 import Paisaje from "./pages/Music/Paisaje";
 import Petricor from "./pages/Music/Petricor";
 import TiempoDeQuerer from "./pages/Music/TiempoDeQuerer";
+import {HelmetProvider} from "react-helmet-async";
 
 const navlinks = [{title: 'Música', path: '/'}, {title: 'Acerca de Mí', path: '/about-me'}, {
     title: 'Pablo Marte',
@@ -27,7 +28,7 @@ function App() {
 
     const [mode, setMode] = useState(true)
     const themeMode = localStorage.getItem("Mode");
-
+    const helmetContext = {};
     const setThemeMode = () => {
         if (themeMode === undefined || themeMode === null) {
             return localStorage.setItem("Mode", mode);
@@ -38,29 +39,32 @@ function App() {
 
     useEffect(setThemeMode);
 
-    return (<ThemeProvider theme={AppTheme(mode)}>
-        <ToastContainer autoClose={8000} closeOnClick/>
-        <BrowserRouter>
-            <CssBaseline/>
-            <Container navlinks={navlinks}>
-                <Routes>
-                    <Route element={<ProtectedRoute/>}>
-                        <Route path={'/'} element={<Home/>}/>
-                        <Route path={'/about-me'} element={<AboutMe/>}/>
-                        <Route path={'/contact'} element={<Contact/>}/>
-                        <Route path={'/gallery'} element={<Gallery/>}/>
-                        <Route path={'/leña-al-fuego'} element={<LeñaAlFuego/>}/>
-                        <Route path={'/luminiscencia'} element={<Luminiscencia/>}/>
-                        <Route path={'/nightingale'} element={<Nightingale/>}/>
-                        <Route path={'/paisaje'} element={<Paisaje/>}/>
-                        <Route path={'/petricor'} element={<Petricor/>}/>
-                        <Route path={'/tiempo-de-querer'} element={<TiempoDeQuerer/>}/>
-                        <Route path={'*'} element={<ErrorPage/>}/>
-                    </Route>
-                </Routes>
-            </Container>
-        </BrowserRouter>
-    </ThemeProvider>);
+    return (
+        <HelmetProvider context={helmetContext}>
+            <ThemeProvider theme={AppTheme(mode)}>
+                <ToastContainer autoClose={8000} closeOnClick/>
+                <BrowserRouter>
+                    <CssBaseline/>
+                    <Container navlinks={navlinks}>
+                        <Routes>
+                            <Route element={<ProtectedRoute/>}>
+                                <Route path={'/'} element={<Home/>}/>
+                                <Route path={'/about-me'} element={<AboutMe/>}/>
+                                <Route path={'/contact'} element={<Contact/>}/>
+                                <Route path={'/gallery'} element={<MyGallery/>}/>
+                                <Route path={'/leña-al-fuego'} element={<LeñaAlFuego/>}/>
+                                <Route path={'/luminiscencia'} element={<Luminiscencia/>}/>
+                                <Route path={'/nightingale'} element={<Nightingale/>}/>
+                                <Route path={'/paisaje'} element={<Paisaje/>}/>
+                                <Route path={'/petricor'} element={<Petricor/>}/>
+                                <Route path={'/tiempo-de-querer'} element={<TiempoDeQuerer/>}/>
+                                <Route path={'*'} element={<ErrorPage/>}/>
+                            </Route>
+                        </Routes>
+                    </Container>
+                </BrowserRouter>
+            </ThemeProvider>
+        </HelmetProvider>);
 
 }
 

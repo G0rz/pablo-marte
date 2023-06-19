@@ -12,11 +12,12 @@ const Home = () => {
     return (<>
         <Helmet>
             <title>Pablo Marte - Home</title>
+            <link rel="preload" as="image" href={Nuevo}/>
         </Helmet>
         <Grid container alignItems={'center'} justifyContent={'center'} textAlign={'center'}>
             <Grid item xs={12} sx={{my: 2}}>
                 <Typography variant={'h2'} component={'h1'}>
-                    Nightingale
+                    Lo más nuevo
                 </Typography>
             </Grid>
             <Grid item sx={{maxWidth: 850, width: {xs: '65vw', md: '35vw'}, my: 2}}>
@@ -31,7 +32,7 @@ const Home = () => {
                 />
             </Grid>
             <Grid item xs={12} sx={{my: 2}}>
-                <Button variant={'contained'} component={'a'} size="large" sx={{borderRadius: 20, my: 4, py: 3, px: 4}}
+                <Button variant={'contained'} component={'a'} size="large" sx={{borderRadius: 20, my: 4}}
                         href={'https://onerpm.link/326059895093'} target="_blank"
                         rel="noopener noreferrer"
                 >
@@ -47,7 +48,7 @@ const Home = () => {
                 </Box>
             </Grid>
             <Grid item xs={12} sx={{my: 2}}>
-                <Button variant={'contained'} component={'a'} size="large" sx={{borderRadius: 20, my: 4, py: 3, px: 4}}
+                <Button variant={'contained'} component={'a'} size="large" sx={{borderRadius: 20, my: 4, py: 2, px: 2}}
                         href={'https://push.fm/fl/ym1utlnz?fbclid=IwAR28Lty8J8LH2CiiFyoZAfjyEXSu33eGlpPGLZPhSemqNJEn-tF55HNxQLA'}
                         target="_blank"
                         rel="noopener noreferrer"
