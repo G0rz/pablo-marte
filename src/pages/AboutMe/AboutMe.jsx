@@ -22,7 +22,7 @@ const AboutMe = () => {
             </Grid>
             <Grid item xs={12} md={6} sx={{my: 3}}>
                 <Image
-                    src={Me}
+                    src={Me} duration={0}
                     alt={'Lo más nuevo'}
                     height="100%"
                     width="100%"

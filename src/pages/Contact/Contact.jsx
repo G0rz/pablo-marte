@@ -24,13 +24,10 @@ const Contact = () => {
                 />
             </Grid>
             <Grid item xs={12} sx={{my: 4}}>
-                <Typography variant={'h6'} component={'p'} color={'inherit'}>
-                    Management |
                     <Typography variant={'h6'} component={Link} href="mailto: pablomarte37@gmail.com" underline={'none'}
                                 color={'inherit'}>
-                        pablomarte37@gmail.com
+                        Management | pablomarte37@gmail.com
                     </Typography>
-                </Typography>
             </Grid>
         </Grid>
     </>);

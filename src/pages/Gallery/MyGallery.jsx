@@ -81,7 +81,7 @@ const MyGallery = () => {
                        Galería
                    </Typography>
                </Grid>
-               <Grid item >
+               <Grid item xs={10}>
                    <Gallery photos={photos} onClick={openLightbox} limitNodeSearch={4}/>
                    <ModalGateway >
                        {viewerIsOpen ? (
