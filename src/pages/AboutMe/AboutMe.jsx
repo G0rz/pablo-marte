@@ -1,5 +1,5 @@
 import {Helmet} from "react-helmet-async";
-import {Grid} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import {Image} from "mui-image";
 import Me from "../../assets/images/AboutMe.webp";
 
@@ -9,8 +9,13 @@ const AboutMe = () => {
         <Helmet>
             <title>Pablo Marte - About Me</title>
         </Helmet>
-        <Grid container alignItems={'center'} justifyContent={'center'} textAlign={'left'}>
-            <Grid item xs={12} md={6} sx={{my: 3}}>
+        <Grid container alignItems={'center'} justifyContent={'center'}>
+            <Grid item xs={12} textAlign={'center'}>
+                <Typography variant={'h3'} component={'h1'} sx={{my:4}}>
+                    EL DESTINO
+                </Typography>
+            </Grid>
+            <Grid item xs={12} md={10} sx={{my: 2}}>
                 <blockquote>
                     En 2019 conocí la música por "casualidad" o al menos eso creo... a partir de ese momento comencé
                     a componer sin tener conocimientos musicales y en noviembre de ese mismo año nació "Petricor",
@@ -20,14 +25,13 @@ const AboutMe = () => {
                     leyendo esto probablemente creas que es mera coincidencia, pero estoy seguro que no lo es.
                 </blockquote>
             </Grid>
-            <Grid item xs={12} md={6} sx={{my: 3}}>
+            <Grid item xs={12} md={8} sx={{my: 2}}>
                 <Image
-                    src={Me} duration={0}
-                    alt={'Lo más nuevo'}
+                    src={Me}
+                    alt={'Acerca de'}
                     height="100%"
                     width="100%"
                     errorIcon={true}
-                    sx={{padding: 4}}
                 />
             </Grid>
         </Grid>

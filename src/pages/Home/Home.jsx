@@ -21,7 +21,7 @@ const Home = () => {
                     LO MÁS NUEVO
                 </Typography>
                 <Box sx={{my: 4}}>
-                    <Image duration={0}
+                    <Image
                            src={Portada}
                            height="425px"
                            width="425px"

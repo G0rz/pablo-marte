@@ -11,7 +11,7 @@ const Contact = () => {
         <Grid container alignItems={'center'} justifyContent={'center'} textAlign={'center'}>
             <Grid item xs={12} sx={{my: 4}}>
                 <Typography variant={'h3'} component={'h1'}>
-                    Contacto
+                    CONTACTO
                 </Typography>
             </Grid>
             <Grid item sx={{maxWidth: 850, width: {xs: '65', md: '38vw'}, my: 2}}>

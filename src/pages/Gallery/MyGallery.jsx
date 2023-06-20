@@ -79,7 +79,7 @@ const MyGallery = () => {
            <Grid container justifyContent={'center'} alignItems={'center'}>
                <Grid item xs={12} sx={{my: 4}}>
                    <Typography variant={'h3'} component={'h1'}>
-                       Galería
+                       GALERÍA
                    </Typography>
                </Grid>
                <Grid item xs={10}>
