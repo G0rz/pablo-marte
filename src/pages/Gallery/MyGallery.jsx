@@ -14,45 +14,46 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 const photos = [
     {
         src: Photo1,
-        width: 4,
-        height: 5,
-        title: 'Photo1'
+        width: 2,
+        height: 2,
+        title: 'Photo 1'
     },
     {
         src: Photo2,
-        width: 4,
-        height: 5,
-        title: 'Photo2'
+        width:2,
+        height: 2,
+        title: 'Photo 2'
     },
     {
         src: Photo3,
-        width: 4,
-        height: 5,
-        title: 'Photo3'
+        width: 2,
+        height: 2
+        ,
+        title: 'Photo 3'
     },
     {
         src: Photo4,
-        width: 4,
-        height: 5,
-        title: 'Photo4'
+        width: 2,
+        height: 2,
+        title: 'Photo 4'
     },
     {
         src: Photo5,
-        width: 4,
-        height: 5,
-        title: 'Photo5'
+        width: 2,
+        height: 2,
+        title: 'Photo 5'
     },
     {
         src: Photo6,
-        width: 4,
-        height: 5,
-        title: 'Photo6'
+        width: 2,
+        height: 2,
+        title: 'Photo 6'
     },
     {
         src: Photo7,
-        width: 4,
-        height: 5,
-        title: 'Photo7'
+        width: 2,
+        height: 2,
+        title: 'Photo 7'
     }
 ];
 const MyGallery = () => {
@@ -82,7 +83,7 @@ const MyGallery = () => {
                    </Typography>
                </Grid>
                <Grid item xs={10}>
-                   <Gallery photos={photos} onClick={openLightbox} limitNodeSearch={4}/>
+                   <Gallery photos={photos} onClick={openLightbox} limitNodeSearch={4} direction={'column'} margin={6}/>
                    <ModalGateway >
                        {viewerIsOpen ? (
                            <Modal onClose={closeLightbox}>
