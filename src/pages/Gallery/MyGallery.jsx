@@ -9,7 +9,7 @@ import Photo5 from "../../assets/images/photo5.webp";
 import Photo6 from "../../assets/images/photo6.webp";
 import Photo7 from "../../assets/images/photo7.webp";
 import {useCallback, useState} from "react";
-import Carousel, { Modal, ModalGateway } from "react-images";
+import Carousel, {Modal, ModalGateway} from "react-images";
 
 const photos = [
     {
@@ -20,7 +20,7 @@ const photos = [
     },
     {
         src: Photo2,
-        width:2,
+        width: 2,
         height: 2,
         title: 'Photo 2'
     },
@@ -54,14 +54,14 @@ const photos = [
         width: 2,
         height: 2,
         title: 'Photo 7'
-    }
+    },
 ];
 const MyGallery = () => {
 
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-    const openLightbox = useCallback((event, { photo, index }) => {
+    const openLightbox = useCallback((event, {photo, index}) => {
         setCurrentImage(index);
         setViewerIsOpen(true);
     }, []);
@@ -71,35 +71,42 @@ const MyGallery = () => {
         setViewerIsOpen(false);
     };
 
+    const style = {
+        'img': {
+            objectFit: 'cover'
+        }
+    };
+
     return (
         <>
             <Helmet>
                 <title>Pablo Marte - Gallery</title>
             </Helmet>
-           <Grid container justifyContent={'center'} alignItems={'center'}>
-               <Grid item xs={12} sx={{my: 4}}>
-                   <Typography variant={'h3'} component={'h1'}>
-                       GALERÍA
-                   </Typography>
-               </Grid>
-               <Grid item xs={10}>
-                   <Gallery photos={photos} onClick={openLightbox} limitNodeSearch={4} direction={'column'} margin={6}/>
-                   <ModalGateway >
-                       {viewerIsOpen ? (
-                           <Modal onClose={closeLightbox}>
-                               <Carousel
-                                   currentIndex={currentImage}
-                                   views={photos.map(x => ({
-                                       ...x,
-                                       srcset: x.srcSet,
-                                       caption: x.title
-                                   }))}
-                               />
-                           </Modal>
-                       ) : null}
-                   </ModalGateway>
-               </Grid>
-           </Grid>
+            <Grid container justifyContent={'center'} alignItems={'center'}>
+                <Grid item xs={12} sx={{my: 4}}>
+                    <Typography variant={'h3'} component={'h1'}>
+                        GALERÍA
+                    </Typography>
+                </Grid>
+                <Grid item xs={10} sx={style}>
+                    <Gallery photos={photos} onClick={openLightbox} limitNodeSearch={4} direction={'column'}
+                             margin={6}/>
+                    <ModalGateway>
+                        {viewerIsOpen ? (
+                            <Modal onClose={closeLightbox}>
+                                <Carousel
+                                    currentIndex={currentImage}
+                                    views={photos.map(x => ({
+                                        ...x,
+                                        srcset: x.srcSet,
+                                        caption: x.title
+                                    }))}
+                                />
+                            </Modal>
+                        ) : null}
+                    </ModalGateway>
+                </Grid>
+            </Grid>
         </>
     );
 };
